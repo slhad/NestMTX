@@ -18,6 +18,8 @@ RUN apt update && apt install -y dumb-init \
     gstreamer1.0-plugins-ugly \
     gstreamer1.0-libav \
     gstreamer1.0-tools \
+    gstreamer1.0-plugins-base-apps \
+    gstreamer1.0-rtsp \
     g++ \
     make && \
     mkdir -p /home/node/app && \
