@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         platform: [linux/amd64]
-
     steps:
     - name: Remove unnecessary files
       run: |
