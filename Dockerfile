@@ -7,27 +7,10 @@ FROM --platform=${BUILDPLATFORM} ${IMAGE_PREFIX}${NODE_IMAGE} AS base
 # Setup the Base Container
 ##################################################
 ENV LC_ALL=C.UTF-8
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && \
-    echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-    apk --no-cache add dumb-init \
+RUN apt update && apt install -y dumb-init \
     openssl \
     ffmpeg \
-    gstreamer-tools \
-    gst-plugins-base \
-    gst-plugins-good \
-    gst-plugins-bad \
-    gst-plugins-ugly \
-    gst-rtsp-server \
-    gstreamer-dev \
-    gst-libav \
-    build-base \
     python3 \
-    pkgconfig \
-    cairo-dev \
-    pango-dev \
-    jpeg-dev \
-    giflib-dev \
     g++ \
     make && \
     mkdir -p /home/node/app && \
