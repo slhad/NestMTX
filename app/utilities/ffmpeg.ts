@@ -6,6 +6,7 @@ export const getHardwareAcceleratedDecodingArgumentsFor = (
     case 'nvenc':
     case 'nvdec':
     case 'cuvid':
+    case 'cuda':
       return [
         '-hwaccel',
         'cuda',
@@ -45,6 +46,7 @@ export const getHardwareAcceleratedEncodingArgumentsFor = (
   hwaccel_device?: string
 ): Array<string> => {
   switch (hwaccel.toLowerCase()) {
+    case 'cuda':
     case 'nvenc':
       return [
         '-c:v',
