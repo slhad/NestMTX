@@ -12,7 +12,7 @@ export const getHardwareAcceleratedDecodingArgumentsFor = (
         'cuda',
         '-hwaccel_output_format',
         'cuda',
-        ...(hwaccel_device ? ['-gpu', hwaccel_device] : []),
+        ...(hwaccel_device ? ['-hwaccel_device', hwaccel_device] : []),
       ]
 
     case 'vaapi':
@@ -51,7 +51,7 @@ export const getHardwareAcceleratedEncodingArgumentsFor = (
       return [
         '-c:v',
         'h264_nvenc',
-        ...(hwaccel_device ? ['-gpu', hwaccel_device] : []),
+        ...(hwaccel_device ? ['-hwaccel_device', hwaccel_device] : []),
         '-preset',
         'p1',
       ]
