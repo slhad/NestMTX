@@ -653,11 +653,8 @@ export default class NestmtxStream extends BaseCommand {
       // Hardware-accelerated encoding arguments
       ...this.#hardwareAcceleratedEncodingArguments,
 
-      // Single H.264 Video Stream (without B-frames)
-      '-tune',
-      'zerolatency', // Tune for low latency
       '-preset',
-      'ultrafast', // Ultrafast preset
+      'll', // lowlatency preset
       `-b:v`,
       `${videoBitrate}k`, // Set video bitrate dynamically
       ...videoSizeArguments,
@@ -705,7 +702,7 @@ export default class NestmtxStream extends BaseCommand {
 
     this.#connectingStreamAbortController.abort()
     this.#cameraStreamLogger.info(`Starting FFMpeg with RTSP stream`)
-    logger.info(`--- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
+    logger.info(`-rtsp- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#cameraStreamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: 'pipe',
       reject: false,
@@ -1069,7 +1066,7 @@ a=rtcp:${audioRTCPPort}
       '1',
     ]
 
-    logger.info(`--- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
+    logger.info(`-webrtc- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#cameraStreamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: 'pipe',
       reject: false,
