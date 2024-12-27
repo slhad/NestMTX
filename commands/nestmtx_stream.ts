@@ -625,6 +625,7 @@ export default class NestmtxStream extends BaseCommand {
         return
       }
     }
+    this.#cameraStreamLogger(`-rtsp-spec- ${JSON.stringify(characteristics)} ---`)
     const videoBitrate = characteristics.video.bitrate || 1000
     const size =
       characteristics.video.width && characteristics.video.height
