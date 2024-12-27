@@ -378,7 +378,7 @@ export default class NestmtxStream extends BaseCommand {
       `"${this.#destination}"`, // Destination path (quoted)
     ]
 
-    logger.info(`${ffmpegBinary} ${ffmpegArgs.join(" ")}`)
+    logger.info(`--- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#streamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: ['pipe', 'pipe', 'pipe', 'pipe'],
       reject: false,
@@ -656,8 +656,6 @@ export default class NestmtxStream extends BaseCommand {
       // Single H.264 Video Stream (without B-frames)
       '-tune',
       'zerolatency', // Tune for low latency
-      '-x264opts',
-      'bframes=0', // No B-frames
       '-preset',
       'ultrafast', // Ultrafast preset
       `-b:v`,

@@ -51,7 +51,6 @@ export const getHardwareAcceleratedEncodingArgumentsFor = (
       return [
         '-c:v',
         'h264_nvenc',
-        ...(hwaccel_device ? ['-hwaccel_device', hwaccel_device] : []),
         '-preset',
         'p1',
       ]
