@@ -707,7 +707,7 @@ export default class NestmtxStream extends BaseCommand {
 
     this.#connectingStreamAbortController.abort()
     this.#cameraStreamLogger.info(`Starting FFMpeg with RTSP stream`)
-    logger.info(`${ffmpegBinary} ${ffmpegArgs.join(" ")}`)
+    logger.info(`--- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#cameraStreamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: 'pipe',
       reject: false,
@@ -1071,7 +1071,7 @@ a=rtcp:${audioRTCPPort}
       '1',
     ]
 
-    logger.info(`${ffmpegBinary} ${ffmpegArgs.join(" ")}`)
+    logger.info(`--- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#cameraStreamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: 'pipe',
       reject: false,
