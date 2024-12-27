@@ -378,7 +378,7 @@ export default class NestmtxStream extends BaseCommand {
       `"${this.#destination}"`, // Destination path (quoted)
     ]
 
-    logger.info(`--- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
+    logger.info(`-outputstreamer- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#streamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: ['pipe', 'pipe', 'pipe', 'pipe'],
       reject: false,
@@ -517,7 +517,7 @@ export default class NestmtxStream extends BaseCommand {
       `unix:${this.#streamerPassthroughSock}`, // Send output to Unix socket
     ]
 
-    logger.info(`${ffmpegBinary} ${ffmpegArgs.join(" ")}`)
+    logger.info(`-jpeg- ${ffmpegBinary} ${ffmpegArgs.join(" ")} ---`)
     this.#staticStreamer = execa(ffmpegBinary, ffmpegArgs, {
       stdio: 'pipe',
       reject: false,
