@@ -51,8 +51,6 @@ export const getHardwareAcceleratedEncodingArgumentsFor = (
       return [
         '-c:v',
         'h264_nvenc',
-        '-preset',
-        'p1',
       ]
 
     case 'vaapi':
