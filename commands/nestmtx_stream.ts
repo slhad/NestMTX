@@ -652,6 +652,13 @@ export default class NestmtxStream extends BaseCommand {
       '-rtsp_transport',
       'udp', // Use UDP to reduce latency
 
+      '-err_detect',
+      'ignore_err',
+      '-flags',
+      '+low_delay',
+      '-use_wallclock_as_timestamps',
+       '1',
+
       // Hardware-accelerated encoding arguments
       ...this.#hardwareAcceleratedEncodingArguments,
 
@@ -668,8 +675,8 @@ export default class NestmtxStream extends BaseCommand {
       '1000000', // Max delay of 1000ms
 
       // Set pixel format to avoid deprecated warning
-      '-pix_fmt',
-      'yuv420p',
+      '-vf',
+      'format=pix_fmts=yuv420p',
 
       // AAC Audio Stream
       '-c:a:0',
@@ -691,15 +698,13 @@ export default class NestmtxStream extends BaseCommand {
       '-map',
       '0:a', // Map the original audio again for Opus encoding
 
-      '-f',
-      'mpegts',
-      '-listen',
-      '0',
-      `unix:${this.#cameraPassthroughSock}`, // Send output to Unix socket
-
       // Optional: Limit the number of threads for real-time processing
       '-threads',
       '1',
+
+      '-f',
+      'mpegts',
+      `unix:${this.#cameraPassthroughSock}`, // Send output to Unix socket
     ]
 
     this.#connectingStreamAbortController.abort()
