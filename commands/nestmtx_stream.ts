@@ -631,8 +631,8 @@ export default class NestmtxStream extends BaseCommand {
         ? `${characteristics.video.width}x${characteristics.video.height}`
         : camera.resolution || '640x480'
 
-    const videoSizeArguments =
-      characteristics.video.width && characteristics.video.height ? ['-s', size] : []
+    // const videoSizeArguments =
+    //   characteristics.video.width && characteristics.video.height ? ['-s', size] : []
 
     const ffmpegArgs: string[] = [
       '-loglevel',
