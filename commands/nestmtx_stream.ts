@@ -625,8 +625,6 @@ export default class NestmtxStream extends BaseCommand {
         return
       }
     }
-    this.#cameraStreamLogger.info(`-rtsp-spec-stream ${JSON.stringify(characteristics)} ---`)
-    this.#cameraStreamLogger.info(`-rtsp-spec-camera ${JSON.stringify(camera)} ---`)
     const videoBitrate = characteristics.video.bitrate || 1000
     const size =
       characteristics.video.width && characteristics.video.height
@@ -666,8 +664,8 @@ export default class NestmtxStream extends BaseCommand {
       'll', // lowlatency preset
       `-b:v`,
       `${videoBitrate}k`, // Set video bitrate dynamically
-      ...videoSizeArguments,
-
+      //...videoSizeArguments,
+      `-vf scale_npp=${size.replaceAll("x",":")}:format=nv12`,
       // Set buffer size and limit delay
       '-bufsize',
       `${videoBitrate}k`, // Set buffer size equal to the bitrate for low latency
