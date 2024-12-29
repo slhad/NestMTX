@@ -675,14 +675,14 @@ export default class NestmtxStream extends BaseCommand {
       '1000000', // Max delay of 1000ms
 
       // Set pixel format to avoid deprecated warning
-      '-vf',
-      'format=pix_fmts=yuv420p',
+      //'-vf',
+      //'format=pix_fmts=yuv420p',
 
       // AAC Audio Stream
-      '-c:a:0',
-      'aac',
-      '-b:a:0',
-      '128k', // Audio bitrate for AAC
+      //'-c:a:0',
+      //'aac',
+      //'-b:a:0',
+      //'128k', // Audio bitrate for AAC
 
       // Opus Audio Stream
       '-c:a:1',
@@ -693,8 +693,8 @@ export default class NestmtxStream extends BaseCommand {
       // Mapping inputs and outputs
       '-map',
       '0:v', // Map the video input to the H.264 video stream
-      '-map',
-      '0:a', // Map the original AAC audio to the first audio track
+      //'-map',
+      //'0:a', // Map the original AAC audio to the first audio track
       '-map',
       '0:a', // Map the original audio again for Opus encoding
 
