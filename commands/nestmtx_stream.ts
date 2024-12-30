@@ -334,19 +334,19 @@ export default class NestmtxStream extends BaseCommand {
 
       // Other video options such as tune, bitrate, etc.
       '-tune',
-      'zerolatency', // Tune for low latency
-      '-x264opts',
-      'bframes=0', // No B-frames
-      '-preset',
-      'ultrafast', // Ultrafast preset
+      'll', // Tune for low latency
+      //'-x264opts',
+      //'bframes=0', // No B-frames
+      //'-preset',
+      //'ultrafast', // Ultrafast preset
       '-b:v',
       '100k', // Set video bitrate dynamically
       '-r',
       '10', // Set frame rate dynamically
 
       // Set pixel format to avoid deprecated warning
-      '-pix_fmt',
-      'yuv420p',
+      //'-pix_fmt',
+      //'yuv420p',
 
       // AAC Audio Stream (track 1)
       '-c:a:0',
