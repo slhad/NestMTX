@@ -362,11 +362,11 @@ export default class NestmtxStream extends BaseCommand {
 
       // Explicit Mapping of Video and Audio Streams
       '-map',
-      '0:v:0', // Map the first video track (H.264)
+      '0:v:0?', // Map the first video track (H.264)
       '-map',
-      '0:a:0', // Map the first audio track (AAC)
+      '0:a:0?', // Map the first audio track (AAC)
       '-map',
-      '0:a:1', // Map the second audio track (Opus)
+      '0:a:1?', // Map the second audio track (Opus)
 
       // Output Format
       '-f',
@@ -688,11 +688,11 @@ export default class NestmtxStream extends BaseCommand {
 
       // Mapping inputs and outputs
       '-map',
-      '0:v', // Map the video input to the H.264 video stream
+      '0:v?', // Map the video input to the H.264 video stream
       //'-map',
       //'0:a', // Map the original AAC audio to the first audio track
       '-map',
-      '0:a', // Map the original audio again for Opus encoding
+      '0:a?', // Map the original audio again for Opus encoding
 
       // Optional: Limit the number of threads for real-time processing
       '-threads',
