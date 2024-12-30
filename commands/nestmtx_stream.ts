@@ -660,12 +660,10 @@ export default class NestmtxStream extends BaseCommand {
       // Hardware-accelerated encoding arguments
       ...this.#hardwareAcceleratedEncodingArguments,
 
-      '-preset',
+      '-tune',
       'll', // lowlatency preset
       `-b:v`,
       `${videoBitrate}k`, // Set video bitrate dynamically
-      //...videoSizeArguments,
-      `-vf scale_npp=${size.replaceAll("x",":")}:format=nv12`,
       // Set buffer size and limit delay
       '-bufsize',
       `${videoBitrate}k`, // Set buffer size equal to the bitrate for low latency
